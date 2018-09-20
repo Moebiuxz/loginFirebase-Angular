@@ -14,8 +14,17 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.clave)
         .then(res => {
+          this.sendPasswordReset(usuario.email);
           resolve(res);
         }, err => reject(err));
+    });
+  }
+
+  sendPasswordReset(email: string) {
+    this.afAuth.auth.sendPasswordResetEmail(email).then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
     });
   }
 }

@@ -12,7 +12,7 @@ export class AuthService {
   // Método para registrar usuario con email.
   doRegister(usuario) {
     return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.password)
+      firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.clave)
         .then(res => {
           resolve(res);
         }, err => reject(err));

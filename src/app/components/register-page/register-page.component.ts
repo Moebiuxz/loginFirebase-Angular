@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UsuarioInterface} from '../../interfaces/usuario-interface';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-register-page',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class RegisterPageComponent implements OnInit {
+  usuario: UsuarioInterface = {
+    email: '',
+    clave: ''
+  };
 
-  constructor() { }
-
+  constructor(private authService: AuthService) { }
   ngOnInit() {
   }
 
+  tryRegister() {
+    this.authService.doRegister(this.usuario)
+      .then(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
+  }
 }

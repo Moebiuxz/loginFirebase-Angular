@@ -9,6 +9,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['home']">Home</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a *ngIf="auth.isLoggedIn()" class="nav-link" [routerLink]="['private']">Private</a>
+      </li>
     </ul>
     <ul class="navbar-nav mr-auto mx-auto">
       <li *ngIf="!auth.isLoggedIn()" class="nav-item" routerLinkActive="active">

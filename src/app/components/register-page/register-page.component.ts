@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UsuarioInterface} from '../../interfaces/usuario-interface';
 import {AuthService} from '../../services/auth.service';
+import { NgForm } from '@angular/forms';
+import * as toastr from 'toastr';
 
 @Component({
   selector: 'app-register-page',
@@ -17,10 +19,12 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  tryRegister() {
+  tryRegister( forma: NgForm) {
     this.authService.doRegister(this.usuario)
       .then(res => {
         console.log(res);
+        toastr.success('El usuario ha sido registrado correctamente!', 'Registro correcto!');
+        forma.reset();
       }, err => {
         console.log(err);
       });

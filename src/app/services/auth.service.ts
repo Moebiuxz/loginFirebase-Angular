@@ -10,7 +10,7 @@ export class AuthService {
   constructor( public afAuth: AngularFireAuth) { }
 
   // Método para registrar usuario con email.
-  doRegister(usuario) {
+  doRegister(usuario: any) {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.clave)
         .then(res => {
@@ -25,6 +25,16 @@ export class AuthService {
       // Email sent.
     }).catch(function(error) {
       // An error happened.
+    });
+  }
+
+  loginUser(usuario: any) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().signInWithEmailAndPassword(usuario.email, usuario.clave)
+        .then(res => {
+          console.log(res);
+          resolve(res);
+        }, err => reject(err));
     });
   }
 }

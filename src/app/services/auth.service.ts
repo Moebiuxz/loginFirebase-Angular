@@ -9,7 +9,4 @@ export class AuthService {
 
   constructor( public afAuth: FirebaseAuthService) { }
 
-  logout() {
-    return this.afAuth.firebase.
-  }
 }

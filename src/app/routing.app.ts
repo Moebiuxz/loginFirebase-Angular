@@ -12,8 +12,7 @@ const APP_ROUTES: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'notfound', component: NotFoundPageComponent },
   { path: 'private', component: PrivatePageComponent },
-  { path: '**', component: NotFoundPageComponent },
-  // { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { useHash: true });

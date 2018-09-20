@@ -11,14 +11,14 @@
       </li>
     </ul>
     <ul class="navbar-nav mr-auto mx-auto">
-      <li class="nav-item" routerLinkActive="active">
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['login']">Login</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['register']">Register</a>
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item" routerLinkActive="active">
+        <a  class="nav-link" [routerLink]="['register']">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['']">Salir</a>
+      <li *ngIf="auth.isLoggedIn()" class="nav-item">
+        <a (click)="logout()" class="nav-link" [routerLink]="['login']">Salir</a>
       </li>
     </ul>
   </div>

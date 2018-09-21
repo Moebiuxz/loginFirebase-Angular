@@ -15,6 +15,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from '../environments/environment';
     RegisterPageComponent,
     LoginPageComponent,
     PrivatePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,7 @@
-<app-navbar></app-navbar>
-<div class="container">
-  <router-outlet></router-outlet>
+<app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+<div *ngIf="!showSpinner">
+  <app-navbar></app-navbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
